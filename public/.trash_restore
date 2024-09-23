@@ -1,0 +1,6 @@
+.env=/home/siacabr1/in.siacabroad.com/.env
+.htaccess=/home/siacabr1/in.siacabroad.com/public/.htaccess
+favicon.ico=/home/siacabr1/in.siacabroad.com/public/favicon.ico
+robots.txt=/home/siacabr1/in.siacabroad.com/public/robots.txt
+index.php=/home/siacabr1/in.siacabroad.com/public/index.php
+error_log=/home/siacabr1/in.siacabroad.com/public/error_log

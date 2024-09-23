@@ -1,0 +1,173 @@
+/* Normal desktop :1200px. */
+@media (min-width: 1200px) and (max-width: 1500px) {}
+
+
+/* Normal desktop :992px. */
+@media (min-width: 992px) and (max-width: 1200px) {
+    .main_btn {
+    padding: 8px;
+}
+}
+
+
+/* Tablet desktop :768px. */
+@media (min-width: 768px) and (max-width: 991px) {
+    .university__fees_table .action {
+        display: block !important;
+    }
+.main_btn {
+    padding: 8px;
+}
+    .university__fees_table .title {
+        margin-bottom: 10px;
+    }
+}
+
+
+/* small mobile :320px. */
+@media (max-width: 767px) {
+    .section_heading h2 {
+        font-size: 30px;
+    }
+.main_btn {
+    padding: 8px;
+}
+    .single-service img {
+        width: 100px;
+        background: #fff;
+        height: 100px;
+        margin: auto;
+        transition: all .5s ease-in-out;
+        border-radius: 50%;
+        padding: 20px;
+    }
+
+    .advanced__search input {
+        padding: 10px;
+        width: 300px;
+    }
+
+    .country-back a {
+        font-size: 12px;
+    }
+
+    .single__count h4 {
+        letter-spacing: 0;
+        font-size: 18px;
+    }
+
+    .single__count img {
+        width: 60px;
+    }
+
+    .single__count h2 {
+        font-size: 30px;
+    }
+
+    .section__heading h2 {
+        font-size: 30px;
+    }
+
+    .section__heading p {
+        font-size: 25px;
+    }
+
+    .university__contact h5 {
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+
+    .banner__active .slick-dots {
+        justify-content: end;
+        margin-right: 20px;
+    }
+
+    .single__slider img {
+        height: 50vh;
+    }
+
+    .advanced__search {
+        max-width: 320px;
+    }
+
+    .advanced__search h1 {
+        font-size: 25px;
+    }
+
+    .advanced__search form input {
+        padding: 10px;
+    }
+
+    .advanced__search ul {
+        display: block !important;
+        text-align: center;
+    }
+
+    .advanced__search ul li a {
+        border-radius: 5px;
+    }
+
+    .breadcrumb__area h2 {
+        font-size: 30px;
+    }
+
+    .study_country_headline,
+    .study_country_headline span {
+        font-size: 30px;
+    }
+
+    .university__course__list {
+        display: block !important;
+    }
+
+    .university__fees_table .action {
+        display: block !important;
+    }
+
+    .university__fees_table .title {
+        margin-bottom: 10px;
+    }
+
+    .sidebar__single__universitiy {
+        display: block !important;
+    }
+
+    .sidebar__single__universitiy .main_btn {
+        margin-top: 10px;
+    }
+
+    .university__fees_table .fees {
+        display: block !important;
+    }
+
+    .university__fees_table .fees span {
+        width: 100% !important;
+        display: block;
+        text-align: start;
+    }
+
+    .university__fees_table .fees span:last-child {
+        text-align: start !important;
+    }
+
+    .university__fees_heading {
+        display: none;
+    }
+    ul.university__facilities {
+        gap: 5px;
+        padding: 2px;
+    }
+    ul.university__facilities li {
+        padding: 5px;
+    }
+}
+
+/* Large Mobile :480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+    .advanced__search {
+        max-width: 450px;
+    }
+.main_btn {
+    padding: 8px;
+}
+}
