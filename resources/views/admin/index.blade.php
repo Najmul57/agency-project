@@ -1,7 +1,6 @@
 @extends('admin.admin_master')
 @section('admin_content')
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
-        @if (auth()->user()->can('totalStudent'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-deepblue">
                     <div class="card-body">
@@ -45,9 +44,6 @@
                     </div>
                 </div>
             </div>
-        @endif
-
-        @if (auth()->user()->can('totalStaff'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-ibiza">
                     <div class="card-body">
@@ -68,9 +64,6 @@
                     </div>
                 </div>
             </div>
-        @endif
-
-        @if (auth()->user()->can('totalPartner'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-ibiza">
                     <div class="card-body">
@@ -92,9 +85,6 @@
                     </div>
                 </div>
             </div>
-        @endif
-
-        @if (auth()->user()->can('totalCountry'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-ohhappiness">
                     <div class="card-body">
@@ -115,9 +105,6 @@
                     </div>
                 </div>
             </div>
-        @endif
-
-        @if (auth()->user()->can('totalUniversitiy'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-orange">
                     <div class="card-body">
@@ -139,9 +126,6 @@
                     </div>
                 </div>
             </div>
-        @endif
-
-        @if (auth()->user()->can('programDecipline'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-orange">
                     <div class="card-body">
@@ -162,9 +146,6 @@
                     </div>
                 </div>
             </div>
-        @endif
-
-        @if (auth()->user()->can('totalDepartment'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-orange">
                     <div class="card-body">
@@ -185,9 +166,6 @@
                     </div>
                 </div>
             </div>
-        @endif
-
-        @if (auth()->user()->can('totalCourse'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-orange">
                     <div class="card-body">
@@ -208,9 +186,6 @@
                     </div>
                 </div>
             </div>
-        @endif
-
-        @if (auth()->user()->can('TotalContent'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-orange">
                     <div class="card-body">
@@ -231,10 +206,7 @@
                     </div>
                 </div>
             </div>
-        @endif
     </div>
-
-    @if (auth()->user()->can('totalPayment'))
         <h5><strong>Payment Fees</strong></h5>
         <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
             <div class="col">
@@ -500,7 +472,6 @@
                 </div>
             </div>
         </div>
-    @endif
 
     <!--end row-->
 @endsection

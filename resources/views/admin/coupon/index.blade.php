@@ -15,9 +15,8 @@
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                @if (auth()->user()->can('create.coupon'))
                     <a href="{{ route('create.coupon') }}" class="btn btn-info">Add Coupon</a>
-                @endif
+              
             </div>
         </div>
     </div>
@@ -47,26 +46,21 @@
                                 <td>{{ $row->amount }}</td>
                                 <td>
                                     @if ($row->status == 1)
-                                        @if (auth()->user()->can('coupon.inactive'))
                                             <a href="{{ route('coupon.inactive', $row->id) }}" id="inactive"
                                                 class="btn btn-sm btn-success">Active</a>
-                                        @endif
+                                        
                                     @else
-                                        @if (auth()->user()->can('coupon.active'))
                                             <a href="{{ route('coupon.active', $row->id) }}" id="active"
                                                 class="btn btn-sm btn-danger">Inactive</a>
                                         @endif
-                                    @endif
+                                   
                                 </td>
                                 <td>
-                                    @if (auth()->user()->can('edit.coupon'))
                                         <a href="{{ route('edit.coupon', $row->id) }}" class="btn btn-sm btn-info"><i
                                                 class='bx bx-edit'></i></a>
-                                    @endif
-                                    @if (auth()->user()->can('destroy.coupon'))
                                         <a href="{{ route('destroy.coupon', $row->id) }}" id="delete"
                                             class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
-                                    @endif
+                                   
                                 </td>
                             </tr>
                         @endforeach

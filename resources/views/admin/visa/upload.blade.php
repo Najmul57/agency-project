@@ -40,9 +40,8 @@
                     <label for="visa_upload">Upload Visa</label>
                     <input type="file" id="visa_upload" name="visa_upload" class="form-control">
                 </div>
-                @if (auth()->user()->can('visa.submit.student'))
                     <button type="submit" class="btn btn-success mt-3">Submit</button>
-                @endif
+                
             </form>
         </div>
     </div>
@@ -76,17 +75,14 @@
                                 <td>{{ ucfirst($data->user->phone ?? '') }}</td>
                                 <td>{{ $data->created_at->format('d M Y') }}</td>
                                 <td>
-                                    @if (auth()->user()->can('admin.student.visa.download'))
                                         <a href="{{ route('admin.student.visa.download', ['id' => $data->id]) }}"
                                             class=" btn-sm
                                         btn-success">Download</a>
-                                    @endif
-                                    @if (auth()->user()->can('admin.student.visa.destroy'))
                                         <a href="{{ route('admin.student.visa.destroy', ['id' => $data->id]) }}"
                                             class=" btn btn-sm
                                         btn-danger"
                                             id="delete">Delete</a>
-                                    @endif
+                                 
                                 </td>
                             </tr>
                         @endforeach

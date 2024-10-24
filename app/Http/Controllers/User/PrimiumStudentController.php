@@ -136,12 +136,26 @@ class PrimiumStudentController extends Controller
             return redirect()->back()->with($notification);
         }
 
+        $basePath = public_path('upload/country/');
+
         if ($data->thumbnail) {
-            unlink(public_path('upload/country/' . $data->thumbnail));
+            $thumbnailPath = $basePath . $data->thumbnail;
+            if (file_exists($thumbnailPath)) {
+                unlink($thumbnailPath);
+            } else {
+                error_log("File not found: " . $thumbnailPath);
+            }
         }
+        
         if ($data->breadcrumb) {
-            unlink(public_path('upload/country/' . $data->breadcrumb));
+            $breadcrumbPath = $basePath . $data->breadcrumb;
+            if (file_exists($breadcrumbPath)) {
+                unlink($breadcrumbPath);
+            } else {
+                error_log("File not found: " . $breadcrumbPath);
+            }
         }
+       
 
         $data->delete();
 
@@ -310,7 +324,6 @@ class PrimiumStudentController extends Controller
 
         $programType = ProgramType::where('university_id', $id)->count();
         if ($programType > 0) {
-            // If there are universities associated, do not allow deletion and show a message
             $notification = [
                 'message' => 'Cannot Remove University! Please Remove associated Program Type first.',
                 'alert-type' => 'error',
@@ -318,15 +331,27 @@ class PrimiumStudentController extends Controller
             return redirect()->back()->with($notification);
         }
 
-        if ($data->thumbnail) {
-            unlink(public_path('upload/university/' . $data->thumbnail));
-        }
-        if ($data->breadcrumb) {
-            unlink(public_path('upload/university/' . $data->breadcrumb));
-        }
+        $basePath = public_path('upload/university/');
 
+        if ($data->thumbnail) {
+            $thumbnailPath = $basePath . $data->thumbnail;
+            if (file_exists($thumbnailPath)) {
+                unlink($thumbnailPath);
+            }
+        }
+        
+        if ($data->breadcrumb) {
+            $breadcrumbPath = $basePath . $data->breadcrumb;
+            if (file_exists($breadcrumbPath)) {
+                unlink($breadcrumbPath);
+            }
+        }
+        
         if ($data->logo) {
-            unlink(public_path('upload/university/' . $data->logo));
+            $logoPath = $basePath . $data->logo;
+            if (file_exists($logoPath)) {
+                unlink($logoPath);
+            }
         }
 
         $data->delete();

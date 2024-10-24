@@ -42,10 +42,9 @@
                                 <td>{{ ucfirst($data->user->phone ?? '') }}</td>
                                 <td>{{ Carbon::parse($data->created_at)->format('F d, Y') }}</td>
                                 <td>
-                                    @if (auth()->user()->can('visa.copy.download'))
                                         <a class="btn btn-sm btn-success"
                                             href="{{ route('visa.copy.download', ['id' => $data->id]) }}">Download</a>
-                                    @endif
+                                  
                                     <a class="btn btn-sm btn-danger" id="delete"
                                         href="{{ route('visa.copy.delete', ['id' => $data->id]) }}">Delete</a>
                                 </td>

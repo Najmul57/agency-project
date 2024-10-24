@@ -22,9 +22,8 @@
                     <label for="description">Description</label>
                     <textarea name="description" id="description" class="form-control">{{ $data->description }}</textarea>
                 </div>
-                @if (auth()->user()->can('visa.guide'))
                     <button type="submit" class="btn btn-success mt-3">Submit</button>
-                @endif
+              
             </form>
         </div>
     </div>

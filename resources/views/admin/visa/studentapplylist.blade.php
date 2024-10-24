@@ -30,14 +30,11 @@
                                 <td>{{ ucfirst($data->user->phone ?? '') }}</td>
                                 <td>{{ Carbon::parse($data->created_at)->format('F d, Y') }}</td>
                                 <td>
-                                    @if (auth()->user()->can('visa.apply.single'))
                                         <a href="{{ route('visa.apply.single', $data->id) }}"
                                             class="btn btn-sm btn-success">Show</a>
-                                    @endif
-                                    @if (auth()->user()->can('visa.reject.single'))
                                         <a href="{{ route('visa.reject.single', $data->id) }}" id="delete"
                                             class="btn btn-sm btn-danger">Reject</a>
-                                    @endif
+                                   
                                 </td>
                             </tr>
                         @endforeach

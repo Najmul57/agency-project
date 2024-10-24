@@ -15,10 +15,9 @@
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                @if (auth()->user()->can('edit.expensive'))
                     <a href="{{ route('gallery.create') }}" class="btn btn-info">Add
                         Gallery</a>
-                @endif
+             
             </div>
         </div>
     </div>
@@ -44,14 +43,11 @@
                                         class="p-1 bg-primary">
                                 </td>
                                 <td>
-                                    @if (auth()->user()->can('gallery.edit'))
                                         <a href="{{ route('gallery.edit', $row->id) }}" class="btn btn-sm btn-info"><i
                                                 class='bx bx-edit'></i></a>
-                                    @endif
-                                    @if (auth()->user()->can('gallery.destroy'))
                                         <a href="{{ route('gallery.destroy', $row->id) }}" id="delete"
                                             class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
-                                    @endif
+                                   
                                 </td>
                             </tr>
                         @endforeach

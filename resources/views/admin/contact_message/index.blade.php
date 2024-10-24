@@ -39,15 +39,12 @@
                                 <td><a href="mailto:{{ $row->email }}">{{ $row->email }}</a></td>
                                 <td><a href="tel:   {{ $row->phone }}">{{ $row->phone }}</a></td>
                                 <td>
-                                    @if (auth()->user()->can('contact.message.view'))
                                         <a href="javascript:void(0)" class="btn btn-sm btn-info" data-bs-toggle="modal"
                                             data-bs-target="#message" data-message="{{ $row->message }}"><i
                                                 class="bx bx-show-alt"></i></a>
-                                    @endif
-                                    @if (auth()->user()->can('contact.message.delete'))
                                         <a href="{{ route('contact.message.delete', $row->id) }}}" id="delete"
                                             class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
-                                    @endif
+                                   
                                 </td>
                             </tr>
                         @endforeach

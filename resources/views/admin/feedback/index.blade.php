@@ -44,29 +44,24 @@
                                 <td>{{ Str::words($row->feedback, 10, '...') }}</td>
                                 <td>
                                     @if ($row->status == 1)
-                                        @if (auth()->user()->can('feedback.inactive'))
                                             <a href="{{ route('feedback.inactive', $row->id) }}" id="inactive"
                                                 class="btn btn-sm btn-success">Active</a>
-                                        @endif
                                     @else
-                                        @if (auth()->user()->can('feedback.active'))
                                             <a href="{{ route('feedback.active', $row->id) }}" id="active"
                                                 class="btn btn-sm btn-danger">Inactive</a>
-                                        @endif
+                                        
                                     @endif
                                 </td>
                                 <td>
-                                    @if (auth()->user()->can('feedback.view'))
                                         {{-- <a href="javascript:void(0)" class="btn btn-sm btn-info" data-bs-toggle="modal"
                                             data-bs-target="#feedback" data-feedback="{{ $row->feedback }}"> <i
                                                 class="bx bx-show-alt"></i></a> --}}
                                         <a href="javascript:void(0)" class="btn btn-sm btn-info" data-bs-toggle="modal"
                                             data-bs-target="#modal{{ $row->id }}"> <i class="bx bx-show-alt"></i></a>
-                                    @endif
-                                    @if (auth()->user()->can('feedback.destroy'))
+                                 
                                         <a id="delete" href="{{ route('feedback.destroy', $row->id) }}"
                                             class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
-                                    @endif
+                                   
                                 </td>
                             </tr>
 

@@ -22,9 +22,7 @@
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                @if (auth()->user()->can('blog.create'))
-                    <a href="{{ route('blog.create') }}" class="btn btn-info">Add Blog</a>
-                @endif
+                <a href="{{ route('blog.create') }}" class="btn btn-info">Add Blog</a>
             </div>
         </div>
     </div>
@@ -56,29 +54,22 @@
                                 <td>{{ Str::words($row->short_description, 5, '...') }}</td>
                                 <td>
                                     @if ($row->status == 1)
-                                        @if (auth()->user()->can('blog.inactive'))
-                                            <a href="{{ route('blog.inactive', $row->id) }}" id="inactive"
-                                                class="btn btn-sm btn-success">Active</a>
-                                        @endif
+                                        <a href="{{ route('blog.inactive', $row->id) }}" id="inactive"
+                                            class="btn btn-sm btn-success">Active</a>
                                     @else
-                                        @if (auth()->user()->can('blog.active'))
-                                            <a href="{{ route('blog.active', $row->id) }}" id="active"
-                                                class="btn btn-sm btn-danger">Inactive</a>
-                                        @endif
+                                        <a href="{{ route('blog.active', $row->id) }}" id="active"
+                                            class="btn btn-sm btn-danger">Inactive</a>
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0)" data-bs-toggle="modal"
+                                    <a href="javascript:void(0)" data-bs-toggle="modal" title="Show"
                                         data-bs-target="#modal{{ $row->id }}" class="btn btn-sm btn-primary"><i
                                             class='bx bx-show'></i></a>
-                                    @if (auth()->user()->can('blog.edit'))
-                                        <a href="{{ route('blog.edit', $row->id) }}" class="btn btn-sm btn-info"><i
-                                                class='bx bx-edit'></i></a>
-                                    @endif
-                                    @if (auth()->user()->can('blog.destroy'))
-                                        <a href="{{ route('blog.destroy', $row->id) }}" id="delete"
-                                            class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
-                                    @endif
+                                    <a href="{{ route('blog.edit', $row->id) }}" title="Update" class="btn btn-sm btn-info"><i
+                                            class='bx bx-edit'></i></a>
+                                    <a href="{{ route('blog.destroy', $row->id) }}" title="Delete" id="delete"
+                                        class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
+
                                 </td>
                             </tr>
 

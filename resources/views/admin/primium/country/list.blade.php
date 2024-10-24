@@ -1,6 +1,11 @@
 @extends('admin.admin_master')
 
 @section('admin_content')
+<style>
+    tr td{
+        vertical-align: middle
+    }
+</style>
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <div class="ps-3">
@@ -52,9 +57,9 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{ route('primium.country.edit', $row->id) }}" class="btn btn-sm btn-info"><i
+                                    <a href="{{ route('primium.country.edit', $row->id) }}" title="Update" class="btn btn-sm btn-info"><i
                                             class='bx bx-edit'></i></a>
-                                    <a href="{{ route('primium.country.destroy', $row->id) }}" id="delete"
+                                    <a href="{{ route('primium.country.destroy', $row->id) }}"title="Delete"  id="delete"
                                         class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
                                 </td>
                             </tr>

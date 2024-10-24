@@ -12,9 +12,8 @@
                 <label for="partner">Partner Welcome Video</label>
                 <input type="text" name="partner" class="form-control mb-2" id="partner" value="{{ $data->partner }}">
             </div>
-            @if (auth()->user()->can('welcome.video'))
                 <button type="submit" class="btn btn-success">Update</button>
-            @endif
+           
         </form>
     </div>
     @php
