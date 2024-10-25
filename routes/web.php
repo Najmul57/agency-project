@@ -451,8 +451,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin', 'auth'], 'namespace
     Route::get('referance/guideline', [AdminController::class, 'referanceGuideline'])->name('referance.guideline');
     Route::post('referance/guideline/update/{id}', [AdminController::class, 'referanceGuidelineUpdate'])->name('referance.guideline.update');
 
-    Route::get('/paymentreceipt/upload', [ReferranceController::class, 'adminpaymentreceiptUpload'])->name('admin.paymentreceipt.upload');
-    Route::post('/paymentreceipt/store', [ReferranceController::class, 'adminpaymentreceiptStore'])->name('admin.paymentreceipt.store');
+    Route::get('/payment-receipt/upload', [ReferranceController::class, 'adminpaymentreceiptUpload'])->name('admin.paymentreceipt.upload');
+    Route::post('/payment-receipt/store', [ReferranceController::class, 'adminpaymentreceiptStore'])->name('admin.paymentreceipt.store');
 
     //letter verification guideline
     Route::get('letterverificaion/guideline', [AdminController::class, 'verificationGuideline'])->name('letterverificaion.guideline');

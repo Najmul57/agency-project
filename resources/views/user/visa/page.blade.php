@@ -114,9 +114,9 @@
                                     </div>
                                     <div class="col-12 col-md-6 mb-2">
                                         <div class="form-group">
-                                            <label for="permanent_address">Pernament Address</label>
+                                            <label for="permanent_address">Permanent Address</label>
                                             <input type="text" id="permanent_address" name="permanent_address"
-                                                class="form-control" placeholder="enter pernament address" required>
+                                                class="form-control" placeholder="enter permanent address" required>
                                         </div>
                                     </div>
                                     <div class="col-12 col-md-6 mb-2">
@@ -246,7 +246,7 @@
                                     </div>
                                     <div class="col-12 col-md-6 mb-2">
                                         <div class="form-group form-photo_scan">
-                                            <label for="through_border">Photo 2*2 Scan Copy</label>
+                                            <label for="through_border">Photo Scan Copy</label>
                                             <input type="file" id="photo_scan" name="photo_scan" class="form-control"
                                                 required>
                                             <p class="text-danger mb-0">pdf file not support</p>

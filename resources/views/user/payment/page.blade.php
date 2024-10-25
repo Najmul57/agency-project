@@ -383,7 +383,7 @@ value="{{ auth()->user()->address }}" @endauth readonly>
                                                 @foreach ($data as $key => $row)
                                                     <tr>
                                                         <td>{{ $key + 1 }}</td>
-                                                        <td>{{ $row->receipt_id }}</td>
+                                                        <td>{{ str_replace('.pdf', '', $row->receipt_id) }}</td>
                                                         <td>{{ $row->created_at->format('d M Y') }}</td>
                                                         <td><a
                                                                 href="{{ route('payments.download', $row->id) }}">Download</a>

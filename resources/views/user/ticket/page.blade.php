@@ -187,10 +187,11 @@
                             </div>
                         </div>
                         <div class="tab-pane fade" id="travelGuideline" role="tabpanel">
-
+                            {{-- {{$travelGuideline}} --}}
                             @foreach ($travelGuideline as $data)
                                 @if ($data->status == 1)
-                                    {!! $data->description !!}
+                                <strong>Travel by</strong> : {{ucfirst($data->mode)}} <br>
+                                    <strong>Description : </strong> {!! $data->description !!}
                                     <embed src="{{ asset('upload/travelguideline/' . $data->pdf) }}"
                                         type="application/pdf" width="100%" height="600px" />
                                 @endif

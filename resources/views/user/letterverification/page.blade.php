@@ -35,7 +35,7 @@
                             <a class="nav-link" data-bs-toggle="tab" href="#documentverificatin" role="tab"
                                 aria-selected="false">
                                 <div class="d-flex align-items-center">
-                                    <div class="tab-title">Document Verification</div>
+                                    <div class="tab-title">Letter Verification</div>
                                 </div>
                             </a>
                         </li>

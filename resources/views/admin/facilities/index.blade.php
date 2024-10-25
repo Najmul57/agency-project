@@ -46,26 +46,18 @@
                                 </td>
                                 <td>
                                     @if ($row->status == 1)
-                                        @if (Auth::user()->can('facilities.inactive'))
-                                            <a href="{{ route('facilities.inactive', $row->id) }}" id="inactive"
-                                                class="btn btn-sm btn-success">Active</a>
-                                        @endif
+                                        <a href="{{ route('facilities.inactive', $row->id) }}" id="inactive"
+                                            class="btn btn-sm btn-success">Active</a>
                                     @else
-                                        @if (Auth::user()->can('facilities.active'))
-                                            <a href="{{ route('facilities.active', $row->id) }}" id="active"
-                                                class="btn btn-sm btn-danger">Inactive</a>
-                                        @endif
+                                        <a href="{{ route('facilities.active', $row->id) }}" id="active"
+                                            class="btn btn-sm btn-danger">Inactive</a>
                                     @endif
                                 </td>
                                 <td>
-                                    @if (Auth::user()->can('facilities.edit'))
-                                        <a href="{{ route('facilities.edit', $row->id) }}" class="btn btn-sm btn-info"><i
-                                                class='bx bx-edit'></i></a>
-                                    @endif
-                                    @if (Auth::user()->can('facilities.destroy'))
-                                        <a href="{{ route('facilities.destroy', $row->id) }}" id="delete"
-                                            class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
-                                    @endif
+                                    <a href="{{ route('facilities.edit', $row->id) }}" class="btn btn-sm btn-info"><i
+                                            class='bx bx-edit'></i></a>
+                                    <a href="{{ route('facilities.destroy', $row->id) }}" id="delete"
+                                        class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
                                 </td>
                             </tr>
                         @endforeach

@@ -773,6 +773,7 @@ a.single__course:hover img {
 .single__review {
     border: 1px solid #ddd;
     border-radius: 10px;
+    background-color: #ffffffba;
 }
 
 .mobile_nav .main_btn {
@@ -1753,14 +1754,16 @@ ul.accordion-body li {
 }
 
 .blog__details__content ol li,
-.country__info ol li {
+.country__info ol li,
+.page_area ol li {
     counter-increment: list-counter;
     position: relative;
     padding-left: 20px;
 }
 
 .blog__details__content ol li::before,
-.country__info ol li::before {
+.country__info ol li::before,
+.page_area ol li::before {
     content: counter(list-counter) ". ";
     position: absolute;
     left: 0;
@@ -1769,14 +1772,16 @@ ul.accordion-body li {
 }
 
 .blog__details__content ul li,
-.country__info ul li {
+.country__info ul li,
+.page_area ul li{
     position: relative;
     margin-left: 20px;
     margin-bottom: 5px;
 }
 
 .blog__details__content ul li::after,
-.country__info ul li::after {
+.country__info ul li::after,
+.page_area  ul li::after {
     position: absolute;
     content: "";
     left: -20px;

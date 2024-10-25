@@ -112,21 +112,21 @@
                         </p>
                     </td>
                     <td>{{ isset($payment->display_amount) && $payment->display_amount !== '' ? $payment->display_amount : $payment->grand_total }}
-                        BDT.
+                        
                     </td>
                 </tr>
                 <tr>
                     <td style="text-align: end;" colspan="2"><strong>Subtotal : </strong></td>
                     <td style="text-align: left;">
                         {{ isset($payment->display_amount) && $payment->display_amount !== '' ? $payment->display_amount : $payment->grand_total }}
-                        BDT.
+                        
                     </td>
                 </tr>
                 <tr>
                     <td style="text-align: end;" colspan="2"><strong>Total : </strong></td>
                     <td style="text-align: left;">
                         {{ isset($payment->display_amount) && $payment->display_amount !== '' ? $payment->display_amount : $payment->grand_total }}
-                        BDT.
+                        
                     </td>
                 </tr>
             </table>
