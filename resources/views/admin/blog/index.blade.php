@@ -7,6 +7,9 @@
             word-wrap: break-word;
             white-space: normal;
         }
+        tr td {
+            vertical-align: middle
+        }
     </style>
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">

@@ -213,6 +213,7 @@ a.dropdown_button.active {
 .single__count {
     padding: 30px 10px;
     border-radius: 10px;
+    background-color: white;
     box-shadow: #d1d2e6 0 8px 24px;
     transition: var(--transition);
 }

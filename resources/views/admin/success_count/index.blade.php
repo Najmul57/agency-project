@@ -1,6 +1,11 @@
 @extends('admin.admin_master')
 
 @section('admin_content')
+    <style>
+        tr td {
+            vertical-align: middle
+        }
+    </style>
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <div class="ps-3">
@@ -16,8 +21,8 @@
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                    <a href="{{ route('success.create') }}" class="btn btn-info">Add Success</a>
-              
+                <a href="{{ route('success.create') }}" class="btn btn-info">Add Success</a>
+
             </div>
         </div>
     </div>
@@ -48,22 +53,20 @@
                                 </td>
                                 <td>
                                     @if ($row->status == 1)
-                                            <a href="{{ route('success.inactive', $row->id) }}" id="inactive"
-                                                class="btn btn-sm btn-success">Active</a>
-                                       f
+                                        <a href="{{ route('success.inactive', $row->id) }}" id="inactive"
+                                            class="btn btn-sm btn-success">Active</a>
                                     @else
-                                            <a href="{{ route('success.active', $row->id) }}" id="active"
-                                                class="btn btn-sm btn-danger">Inactive</a>
-                                       
+                                        <a href="{{ route('success.active', $row->id) }}" id="active"
+                                            class="btn btn-sm btn-danger">Inactive</a>
                                     @endif
                                 </td>
 
                                 <td>
-                                        <a href="{{ route('success.edit', $row->id) }}" class="btn btn-sm btn-info"><i
-                                                class='bx bx-edit'></i></a>
-                                        <a href="{{ route('success.destroy', $row->id) }}" id="delete"
-                                            class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
-                                   
+                                    <a href="{{ route('success.edit', $row->id) }}" class="btn btn-sm btn-info"><i
+                                            class='bx bx-edit'></i></a>
+                                    <a href="{{ route('success.destroy', $row->id) }}" id="delete"
+                                        class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
+
                                 </td>
                             </tr>
                         @endforeach

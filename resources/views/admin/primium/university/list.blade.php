@@ -7,6 +7,10 @@
             word-wrap: break-word;
             white-space: normal;
         }
+    tr td{
+        vertical-align: middle
+    }
+</style>
     </style>
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
@@ -63,12 +67,12 @@
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0)" data-bs-toggle="modal"
+                                    <a href="javascript:void(0)" data-bs-toggle="modal" title="View" 
                                         data-bs-target="#modal{{ $row->id }}" class="btn btn-sm btn-primary"><i
                                             class='bx bx-show'></i></a>
-                                    <a href="{{ route('primium.university.edit', $row->id) }}"
+                                    <a href="{{ route('primium.university.edit', $row->id) }}" title="Update" 
                                         class="btn btn-sm btn-info"><i class='bx bx-edit'></i></a>
-                                    <a href="{{ route('primium.university.destroy', $row->id) }}" id="delete"
+                                    <a href="{{ route('primium.university.destroy', $row->id) }}"  title="Delete" id="delete"
                                         class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
                                 </td>
                             </tr>

@@ -3,6 +3,15 @@
     SIAC || Study in {{ ucfirst($countrydetails->name) }}
 @endsection
 @section('frontend_content')
+    <style>
+        a.single_country {
+            display: block;
+            padding: 10px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        }
+    </style>
     <!-- breadcrumb start -->
     @if ($countrydetails)
         <div class="breadcrumb__area" style="background: url('{{ asset('upload/country/' . $countrydetails->breadcrumb) }}')">

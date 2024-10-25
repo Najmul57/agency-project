@@ -1,6 +1,11 @@
 @extends('admin.admin_master')
 
 @section('admin_content')
+<style>
+    tr td{
+        vertical-align: middle
+    }
+</style>
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
         <div class="ps-3">

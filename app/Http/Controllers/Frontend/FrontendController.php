@@ -86,7 +86,7 @@ class FrontendController extends Controller
         $services = Services::where('status', 1)->latest()->limit(8)->get();
         $countries = PrimiumCountry::where('status', 1)->latest()->limit(6)->get();
         $universities = PrimiumUniversity::where('status', 1)->latest()->limit(8)->get();
-        $blogs = Blog::where('status', 1)->latest()->limit(4)->get();
+        $blogs = Blog::where('status', 1)->latest()->limit(3)->get();
         $totalUniversity = PrimiumUniversity::where('status', 1)->count();
         $totalCountry = PrimiumCountry::where('status', 1)->count();
         $feedback = StudentFeedback::where('status', 1)->latest()->get();
