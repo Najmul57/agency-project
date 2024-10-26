@@ -21,8 +21,10 @@
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                <a href="{{ route('slider.create') }}" class="btn btn-info">Add
-                    Slider</a>
+                @if (auth()->user()->can('Slider-Add'))
+                    <a href="{{ route('slider.create') }}" class="btn btn-info">Add
+                        Slider</a>
+                @endif
             </div>
         </div>
     </div>
@@ -50,19 +52,26 @@
                                 </td>
                                 <td>
                                     @if ($row->status == 1)
-                                        <a href="{{ route('slider.inactive', $row->id) }}" id="inactive"
-                                            class="btn btn-sm btn-success">Active</a>
+                                        @if (auth()->user()->can('Slider-Inactive'))
+                                            <a href="{{ route('slider.inactive', $row->id) }}" id="inactive"
+                                                class="btn btn-sm btn-success">Active</a>
+                                        @endif
                                     @else
-                                        <a href="{{ route('slider.active', $row->id) }}" id="active"
-                                            class="btn btn-sm btn-danger">Inactive</a>
+                                        @if (auth()->user()->can('Slider-Active'))
+                                            <a href="{{ route('slider.active', $row->id) }}" id="active"
+                                                class="btn btn-sm btn-danger">Inactive</a>
+                                        @endif
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="{{ route('slider.edit', $row->id) }}" class="btn btn-sm btn-info"><i
-                                            class='bx bx-edit'></i></a>
-                                    <a href="{{ route('slider.destroy', $row->id) }}" id="delete"
-                                        class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
-
+                                    @if (auth()->user()->can('Slider-Update'))
+                                        <a href="{{ route('slider.edit', $row->id) }}" class="btn btn-sm btn-info"><i
+                                                class='bx bx-edit'></i></a>
+                                    @endif
+                                    @if (auth()->user()->can('Slider-Delete'))
+                                        <a href="{{ route('slider.destroy', $row->id) }}" id="delete"
+                                            class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach
