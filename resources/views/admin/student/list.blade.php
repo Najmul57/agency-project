@@ -47,18 +47,24 @@
                                             class=" disabled text-white btn btn-sm btn-success">Primium
                                             Student</a>
                                     @else
-                                        <a href="{{ route('free.student.active.admin', $row->id) }}"
-                                            class="btn btn-sm btn-info" id="active">Free Student</a>
+                                        @if (auth()->user()->can('Student-Primium'))
+                                            <a href="{{ route('free.student.active.admin', $row->id) }}"
+                                                class="btn btn-sm btn-info" id="active">Free Student</a>
+                                        @endif
                                     @endif
                                 </td>
                                 <td>
                                     @if ($row->status == 1)
-                                        <a href="{{ route('student.toggle', $row->id) }}" id="inactive"
-                                            class="btn btn-sm btn-primary">Approved</a>
+                                        @if (auth()->user()->can('Student-Approved'))
+                                            <a href="{{ route('student.toggle', $row->id) }}" id="inactive"
+                                                class="btn btn-sm btn-primary">Approved</a>
+                                        @endif
                                     @else
-                                        <a href="{{ route('student.toggle', $row->id) }}"
-                                            onclick="return confirm('Do you want to approved?')"
-                                            title="Do you want to approved?" class="btn btn-sm btn-danger">Waiting</a>
+                                        @if (auth()->user()->can('Student-Waiting'))
+                                            <a href="{{ route('student.toggle', $row->id) }}"
+                                                onclick="return confirm('Do you want to approved?')"
+                                                title="Do you want to approved?" class="btn btn-sm btn-danger">Waiting</a>
+                                        @endif
                                     @endif
                                 </td>
                                 <td>
@@ -70,13 +76,16 @@
                                 </td>
                                 <td>
                                     @if ($row->is_primium == 'is_primium')
-                                        {{-- <a href="javascript:void(0)" class="btn btn-sm btn-danger disabled">Delete</a> --}}
                                     @else
-                                        <a href="{{ route('student.delete.admin', $row->id) }}" id="delete"
-                                            class="btn btn-sm btn-danger">Delete</a>
+                                        @if (auth()->user()->can('Student-Delete'))
+                                            <a href="{{ route('student.delete.admin', $row->id) }}" id="delete"
+                                                class="btn btn-sm btn-danger">Delete</a>
+                                        @endif
                                     @endif
-                                    <a href="{{ route('single.student.admin', $row->id) }}"
-                                        class="btn btn-sm btn-info">View</a>
+                                    @if (auth()->user()->can('Student-View'))
+                                        <a href="{{ route('single.student.admin', $row->id) }}"
+                                            class="btn btn-sm btn-info">View</a>
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

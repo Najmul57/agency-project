@@ -1,6 +1,7 @@
 @extends('admin.admin_master')
 @section('admin_content')
     <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+        @if (auth()->user()->can('Dashboard-Total-Student'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-deepblue">
                     <div class="card-body">
@@ -22,7 +23,8 @@
                     </div>
                 </div>
             </div>
-
+        @endif
+        @if (auth()->user()->can('Dashboard-Total-Student'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-deepblue">
                     <div class="card-body">
@@ -44,6 +46,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Total-Staff	'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-ibiza">
                     <div class="card-body">
@@ -64,6 +68,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Total-Partner'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-ibiza">
                     <div class="card-body">
@@ -85,6 +91,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Total-Country'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-ohhappiness">
                     <div class="card-body">
@@ -105,6 +113,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Total-University'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-orange">
                     <div class="card-body">
@@ -126,6 +136,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Total-Program-Dicipline'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-orange">
                     <div class="card-body">
@@ -146,6 +158,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Total-Department'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-orange">
                     <div class="card-body">
@@ -166,6 +180,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Total-Courses'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-orange">
                     <div class="card-body">
@@ -186,6 +202,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Total-Content'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-orange">
                     <div class="card-body">
@@ -206,9 +224,11 @@
                     </div>
                 </div>
             </div>
+        @endif
     </div>
-        <h5><strong>Payment Fees</strong></h5>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+    <h5><strong>Payment Fees</strong></h5>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+        @if (auth()->user()->can('Dashboard-Admission-Fees'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-deepblue">
                     <div class="card-body">
@@ -229,6 +249,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Tuition-Fees'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-orange">
                     <div class="card-body">
@@ -248,6 +270,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Tickets'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-ohhappiness">
                     <div class="card-body">
@@ -267,6 +291,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Visa-Purpose'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-ibiza">
                     <div class="card-body">
@@ -286,6 +312,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Service-Charge'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-deepblue">
                     <div class="card-body">
@@ -306,6 +334,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Application-Fees'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-deepblue">
                     <div class="card-body">
@@ -326,6 +356,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Others'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-orange">
                     <div class="card-body">
@@ -345,9 +377,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <h5><strong>Letter Verification</strong></h5>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+        @endif
+    </div>
+    <h5><strong>Letter Verification</strong></h5>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+        @if (auth()->user()->can('Dashboard-Offer-Letter'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-deepblue">
                     <div class="card-body">
@@ -368,6 +402,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Admission-Letter'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-orange">
                     <div class="card-body">
@@ -387,6 +423,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Doctor-Appointment-Letter'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-ohhappiness">
                     <div class="card-body">
@@ -406,6 +444,8 @@
                     </div>
                 </div>
             </div>
+        @endif
+        @if (auth()->user()->can('Dashboard-Another-Letter'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-ibiza">
                     <div class="card-body">
@@ -425,9 +465,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <h5><strong>Primium Subscription</strong></h5>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+        @endif
+    </div>
+    <h5><strong>Primium Subscription</strong></h5>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+        @if (auth()->user()->can('Dashboard-Primium-Subcription'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-deepblue">
                     <div class="card-body">
@@ -448,9 +490,11 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <h5><strong>Total Student Collection Amount</strong></h5>
-        <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+        @endif
+    </div>
+    <h5><strong>Total Student Collection Amount</strong></h5>
+    <div class="row row-cols-1 row-cols-md-2 row-cols-xl-4">
+        @if (auth()->user()->can('Dashboard-Total-Amount'))
             <div class="col">
                 <div class="card radius-10 bg-gradient-deepblue">
                     <div class="card-body">
@@ -471,7 +515,8 @@
                     </div>
                 </div>
             </div>
-        </div>
+        @endif
+    </div>
 
     <!--end row-->
 @endsection

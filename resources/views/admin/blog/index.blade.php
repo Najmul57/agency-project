@@ -7,6 +7,7 @@
             word-wrap: break-word;
             white-space: normal;
         }
+
         tr td {
             vertical-align: middle
         }
@@ -25,7 +26,9 @@
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                <a href="{{ route('blog.create') }}" class="btn btn-info">Add Blog</a>
+                @if (auth()->user()->can('Blog-Add'))
+                    <a href="{{ route('blog.create') }}" class="btn btn-info">Add Blog</a>
+                @endif
             </div>
         </div>
     </div>
@@ -57,22 +60,31 @@
                                 <td>{{ Str::words($row->short_description, 5, '...') }}</td>
                                 <td>
                                     @if ($row->status == 1)
-                                        <a href="{{ route('blog.inactive', $row->id) }}" id="inactive"
-                                            class="btn btn-sm btn-success">Active</a>
+                                        @if (auth()->user()->can('Blog-Inactive'))
+                                            <a href="{{ route('blog.inactive', $row->id) }}" id="inactive"
+                                                class="btn btn-sm btn-success">Active</a>
+                                        @endif
                                     @else
-                                        <a href="{{ route('blog.active', $row->id) }}" id="active"
-                                            class="btn btn-sm btn-danger">Inactive</a>
+                                        @if (auth()->user()->can('Blog-Active'))
+                                            <a href="{{ route('blog.active', $row->id) }}" id="active"
+                                                class="btn btn-sm btn-danger">Inactive</a>
+                                        @endif
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0)" data-bs-toggle="modal" title="Show"
-                                        data-bs-target="#modal{{ $row->id }}" class="btn btn-sm btn-primary"><i
-                                            class='bx bx-show'></i></a>
-                                    <a href="{{ route('blog.edit', $row->id) }}" title="Update" class="btn btn-sm btn-info"><i
-                                            class='bx bx-edit'></i></a>
-                                    <a href="{{ route('blog.destroy', $row->id) }}" title="Delete" id="delete"
-                                        class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
-
+                                    @if (auth()->user()->can('Blog-View'))
+                                        <a href="javascript:void(0)" data-bs-toggle="modal" title="Show"
+                                            data-bs-target="#modal{{ $row->id }}" class="btn btn-sm btn-primary"><i
+                                                class='bx bx-show'></i></a>
+                                    @endif
+                                    @if (auth()->user()->can('Blog-Update'))
+                                        <a href="{{ route('blog.edit', $row->id) }}" title="Update"
+                                            class="btn btn-sm btn-info"><i class='bx bx-edit'></i></a>
+                                    @endif
+                                    @if (auth()->user()->can('Blog-Delete'))
+                                        <a href="{{ route('blog.destroy', $row->id) }}" title="Delete" id="delete"
+                                            class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
+                                    @endif
                                 </td>
                             </tr>
 

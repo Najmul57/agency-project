@@ -23,6 +23,7 @@
                 <div class="menu-title">View Site</div>
             </a>
         </li>
+        @if (auth()->user()->can('University-Information'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-book-alt'></i>
@@ -47,28 +48,29 @@
                 </li>
             </ul>
         </li>
-
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-user'></i>
-                </div>
-                <div class="menu-title">Student</div>
-            </a>
-            <ul>
-                <li> <a href="{{ route('student.list.admin') }}"><i class="bx bx-right-arrow-alt"></i>
-                        Student
-                        List</a>
-                </li>
-                <li> <a href="{{ route('student.add.admin') }}"><i class="bx bx-right-arrow-alt"></i>
-                        Student Add</a>
-                </li>
-
-                {{-- <li> <a href="{{ route('free.student.list.admin') }}"><i class="bx bx-right-arrow-alt"></i>Free
+@endif
+        @if (auth()->user()->can('Student'))
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class='bx bx-user'></i>
+                    </div>
+                    <div class="menu-title">Student</div>
+                </a>
+                <ul>
+                    @if (auth()->user()->can('Student-List'))
+                        <li> <a href="{{ route('student.list.admin') }}"><i class="bx bx-right-arrow-alt"></i>
                                 Student
                                 List</a>
-                        </li> --}}
-            </ul>
-        </li>
+                        </li>
+                    @endif
+                    @if (auth()->user()->can('Student-Add'))
+                        <li> <a href="{{ route('student.add.admin') }}"><i class="bx bx-right-arrow-alt"></i>
+                                Student Add</a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
 
         @if (auth()->user()->can('Slider'))
             <li>
@@ -91,66 +93,82 @@
         @endif
 
         @if (auth()->user()->can('Success-Count'))
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class="bx bx-donate-blood"></i>
-                </div>
-                <div class="menu-title">Success Count</div>
-            </a>
-            <ul>
-                <li> <a href="{{ route('success.index') }}"><i class="bx bx-right-arrow-alt"></i>Success
-                        List</a>
-                </li>
-                <li> <a href="{{ route('success.create') }}"><i class="bx bx-right-arrow-alt"></i>Add
-                        Success</a>
-                </li>
-            </ul>
-        </li>
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class="bx bx-donate-blood"></i>
+                    </div>
+                    <div class="menu-title">Success Count</div>
+                </a>
+                <ul>
+                    <li> <a href="{{ route('success.index') }}"><i class="bx bx-right-arrow-alt"></i>Success
+                            List</a>
+                    </li>
+                    <li> <a href="{{ route('success.create') }}"><i class="bx bx-right-arrow-alt"></i>Add
+                            Success</a>
+                    </li>
+                </ul>
+            </li>
         @endif
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-server'></i>
-                </div>
-                <div class="menu-title">Services</div>
-            </a>
-            <ul>
-                <li> <a href="{{ route('service.index') }}"><i class="bx bx-right-arrow-alt"></i>Services
-                        List</a>
-                </li>
-                <li> <a href="{{ route('service.create') }}"><i class="bx bx-right-arrow-alt"></i>Add
-                        Service</a>
-                </li>
-            </ul>
-        </li>
 
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-repeat'></i>
-                </div>
-                <div class="menu-title">Blog</div>
-            </a>
-            <ul>
-                <li> <a href="{{ route('blog.index') }}"><i class="bx bx-right-arrow-alt"></i>Blog List</a>
-                </li>
-                <li> <a href="{{ route('blog.create') }}"><i class="bx bx-right-arrow-alt"></i>Add Blog</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-images'></i>
-                </div>
-                <div class="menu-title">Gallery</div>
-            </a>
-            <ul>
-                <li> <a href="{{ route('gallery.index') }}"><i class="bx bx-right-arrow-alt"></i>Gallery
-                        List</a>
-                </li>
-                <li> <a href="{{ route('gallery.create') }}"><i class="bx bx-right-arrow-alt"></i>Add
-                        Gallery</a>
-                </li>
-            </ul>
-        </li>
+        @if (auth()->user()->can('Services'))
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class='bx bx-server'></i>
+                    </div>
+                    <div class="menu-title">Services</div>
+                </a>
+                <ul>
+                    @if (auth()->user()->can('Services-List'))
+                        <li> <a href="{{ route('service.index') }}"><i class="bx bx-right-arrow-alt"></i>Services
+                                List</a>
+                        </li>
+                    @endif
+                    @if (auth()->user()->can('Services-Add'))
+                        <li> <a href="{{ route('service.create') }}"><i class="bx bx-right-arrow-alt"></i>Add
+                                Service</a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+
+        @if (auth()->user()->can('Blog'))
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class='bx bx-repeat'></i>
+                    </div>
+                    <div class="menu-title">Blog</div>
+                </a>
+                <ul>
+                    @if (auth()->user()->can('Blog-List'))
+                        <li> <a href="{{ route('blog.index') }}"><i class="bx bx-right-arrow-alt"></i>Blog List</a>
+                        </li>
+                    @endif
+                    @if (auth()->user()->can('Blog-Add'))
+                        <li> <a href="{{ route('blog.create') }}"><i class="bx bx-right-arrow-alt"></i>Add Blog</a>
+                        </li>
+                    @endif
+                </ul>
+            </li>
+        @endif
+
+        @if (auth()->user()->can('Gallery'))
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class='bx bx-images'></i>
+                    </div>
+                    <div class="menu-title">Gallery</div>
+                </a>
+                <ul>
+                    <li> <a href="{{ route('gallery.index') }}"><i class="bx bx-right-arrow-alt"></i>Gallery
+                            List</a>
+                    </li>
+                    <li> <a href="{{ route('gallery.create') }}"><i class="bx bx-right-arrow-alt"></i>Add
+                            Gallery</a>
+                    </li>
+                </ul>
+            </li>
+        @endif
         {{-- <li>
             <a href="{{ route('invoice.list') }}">
                 <div class="parent-icon"><i class='bx bx-file'></i>
@@ -159,42 +177,52 @@
             </a>
         </li> --}}
 
-        <li>
-            <a href="{{ route('facilities.index') }}">
-                <div class="parent-icon"><i class='bx bx-home-circle'></i>
-                </div>
-                <div class="menu-title">University Facilities</div>
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('welcome.video') }}">
-                <div class="parent-icon"><i class='bx bx-home-circle'></i>
-                </div>
-                <div class="menu-title">Welcome Video</div>
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('feedback') }}">
-                <div class="parent-icon"><i class='bx bx-user-circle'></i>
-                </div>
-                <div class="menu-title">Student Feedback</div>
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('admiin.team') }}">
-                <div class="parent-icon"><i class='bx bx-user-circle'></i>
-                </div>
-                <div class="menu-title">Team Member</div>
-            </a>
-        </li>
-        <li>
-            <a href="{{ route('student.help') }}">
-                <div class="parent-icon"><i class='bx bx-user-circle'></i>
-                </div>
-                <div class="menu-title">Student
-                    Help/Contact</div>
-            </a>
-        </li>
+        @if (auth()->user()->can('University-Facilities'))
+            <li>
+                <a href="{{ route('facilities.index') }}">
+                    <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                    </div>
+                    <div class="menu-title">University Facilities</div>
+                </a>
+            </li>
+        @endif
+        @if (auth()->user()->can('Welcome-Video'))
+            <li>
+                <a href="{{ route('welcome.video') }}">
+                    <div class="parent-icon"><i class='bx bx-home-circle'></i>
+                    </div>
+                    <div class="menu-title">Welcome Video</div>
+                </a>
+            </li>
+        @endif
+        @if (auth()->user()->can('Student-Feedback'))
+            <li>
+                <a href="{{ route('feedback') }}">
+                    <div class="parent-icon"><i class='bx bx-user-circle'></i>
+                    </div>
+                    <div class="menu-title">Student Feedback</div>
+                </a>
+            </li>
+        @endif
+        @if (auth()->user()->can('Student-Feedback'))
+            <li>
+                <a href="{{ route('admiin.team') }}">
+                    <div class="parent-icon"><i class='bx bx-user-circle'></i>
+                    </div>
+                    <div class="menu-title">Team Member</div>
+                </a>
+            </li>
+        @endif
+        @if (auth()->user()->can('Student-Help/Contact'))
+            <li>
+                <a href="{{ route('student.help') }}">
+                    <div class="parent-icon"><i class='bx bx-user-circle'></i>
+                    </div>
+                    <div class="menu-title">Student Help/Contact</div>
+                </a>
+            </li>
+        @endif
+        @if (auth()->user()->can('Payment'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-images'></i>
@@ -213,6 +241,8 @@
                 </li>
             </ul>
         </li>
+        @endif
+        @if (auth()->user()->can('Letter'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-images'></i>
@@ -243,6 +273,8 @@
                     @endif --}}
             </ul>
         </li>
+        @endif
+        @if (auth()->user()->can('Noc'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-images'></i>
@@ -268,6 +300,8 @@
                     @endif --}}
             </ul>
         </li>
+        @endif
+        @if (auth()->user()->can('Visa'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-images'></i>
@@ -291,7 +325,8 @@
                         Upload</a>
                 </li>
             </ul>
-        </li>
+        </li>@endif
+        @if (auth()->user()->can('Ticketing'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-images'></i>
@@ -316,6 +351,8 @@
                 </li>
             </ul>
         </li>
+        @endif
+        @if (auth()->user()->can('Referance'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-images'></i>
@@ -331,6 +368,8 @@
                 </li>
             </ul>
         </li>
+        @endif
+        @if (auth()->user()->can('Letter-Verification'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-images'></i>
@@ -349,6 +388,8 @@
                 </li>
             </ul>
         </li>
+        @endif
+        @if (auth()->user()->can('Cashbook'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-images'></i>
@@ -356,14 +397,20 @@
                 <div class="menu-title">Cashbook</div>
             </a>
             <ul>
+                 @if (auth()->user()->can('Cashbook-List'))
                 <li> <a href="{{ route('admin.expensive') }}"><i class="bx bx-right-arrow-alt"></i>Cashbook
                         List</a>
                 </li>
+                @endif
+                 @if (auth()->user()->can('Cashbook-Add'))
                 <li> <a href="{{ route('create.expensive') }}"><i class="bx bx-right-arrow-alt"></i>Cashbook
                         Add</a>
                 </li>
+                @endif
             </ul>
         </li>
+        @endif
+        @if (auth()->user()->can('Coupon'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-images'></i>
@@ -379,6 +426,8 @@
                 </li>
             </ul>
         </li>
+        @endif
+        @if (auth()->user()->can('Notice'))
         <li>
             <a href="{{ route('admin.notice') }}">
                 <div class="parent-icon"><i class='bx bx-note'></i>
@@ -386,6 +435,8 @@
                 <div class="menu-title">Notice</div>
             </a>
         </li>
+        @endif
+        @if (auth()->user()->can('Refund-Policy'))
         <li>
             <a href="{{ route('admin.refund') }}">
                 <div class="parent-icon"><i class='bx bx-user-circle'></i>
@@ -393,6 +444,8 @@
                 <div class="menu-title">Refund Policy</div>
             </a>
         </li>
+        @endif
+        @if (auth()->user()->can('Contact-Message'))
         <li>
             <a href="{{ route('contact.message') }}">
                 <div class="parent-icon"><i class='bx bx-message-dots'></i>
@@ -400,6 +453,8 @@
                 <div class="menu-title">Contact Message</div>
             </a>
         </li>
+        @endif
+        @if (auth()->user()->can('Settings'))
         <li>
             <a href="javascript:;" class="has-arrow">
                 <div class="parent-icon"><i class='bx bx-cog'></i>
@@ -425,43 +480,48 @@
                     @endif --}}
             </ul>
         </li>
+        @endif
 
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-accessibility'></i>
-                </div>
-                <div class="menu-title">Roles & Permission</div>
-            </a>
-            <ul>
-                <li> <a href="{{ route('all.permission') }}"><i class="bx bx-right-arrow-alt"></i>All
-                        Permission</a>
-                </li>
-                <li> <a href="{{ route('all.roles') }}"><i class="bx bx-right-arrow-alt"></i>All Roles</a>
-                </li>
-                <li> <a href="{{ route('add.roles.permission') }}"><i class="bx bx-right-arrow-alt"></i>Roles
-                        in
-                        Permission</a>
-                </li>
-                <li> <a href="{{ route('all.roles.permission') }}"><i class="bx bx-right-arrow-alt"></i>All
-                        Roles
-                        in
-                        Permission</a>
-                </li>
-            </ul>
-        </li>
-        <li>
-            <a href="javascript:;" class="has-arrow">
-                <div class="parent-icon"><i class='bx bx-user'></i>
-                </div>
-                <div class="menu-title">Admin Manage</div>
-            </a>
-            <ul>
-                <li> <a href="{{ route('all.admin') }}"><i class="bx bx-right-arrow-alt"></i>All Admin</a>
-                </li>
-                <li> <a href="{{ route('add.admin') }}"><i class="bx bx-right-arrow-alt"></i>Add Admin</a>
-                </li>
-            </ul>
-        </li>
+        @if (auth()->user()->can('Roles-&-Permission'))
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class='bx bx-accessibility'></i>
+                    </div>
+                    <div class="menu-title">Roles & Permission</div>
+                </a>
+                <ul>
+                    <li> <a href="{{ route('all.permission') }}"><i class="bx bx-right-arrow-alt"></i>All
+                            Permission</a>
+                    </li>
+                    <li> <a href="{{ route('all.roles') }}"><i class="bx bx-right-arrow-alt"></i>All Roles</a>
+                    </li>
+                    <li> <a href="{{ route('add.roles.permission') }}"><i class="bx bx-right-arrow-alt"></i>Roles
+                            in
+                            Permission</a>
+                    </li>
+                    <li> <a href="{{ route('all.roles.permission') }}"><i class="bx bx-right-arrow-alt"></i>All
+                            Roles
+                            in
+                            Permission</a>
+                    </li>
+                </ul>
+            </li>
+        @endif
+        @if (auth()->user()->can('Admin-Manage'))
+            <li>
+                <a href="javascript:;" class="has-arrow">
+                    <div class="parent-icon"><i class='bx bx-user'></i>
+                    </div>
+                    <div class="menu-title">Admin Manage</div>
+                </a>
+                <ul>
+                    <li> <a href="{{ route('all.admin') }}"><i class="bx bx-right-arrow-alt"></i>All Admin</a>
+                    </li>
+                    <li> <a href="{{ route('add.admin') }}"><i class="bx bx-right-arrow-alt"></i>Add Admin</a>
+                    </li>
+                </ul>
+            </li>
+        @endif
     </ul>
     <!--end navigation-->
 </div>

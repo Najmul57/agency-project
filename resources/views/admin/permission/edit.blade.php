@@ -66,18 +66,31 @@
                         <option value="Refund-Policy">Refund Policy</option>
                         <option value="Contact-Message">Contact Message</option>
                         <option value="Setting">Setting</option>
-                        <option value="role&Role-&-Permission">Role & Permission</option>
+                        <option value="Role-&-Permission">Role & Permission</option>
                         <option value="Admin-Manage">Admin Manage</option>
-                        <option value="Total-Student">Total Student</option>
-                        <option value="Total-Staff">Total Staff</option>
-                        <option value="Total-Partner">Total Partner</option>
-                        <option value="Total-Country">Total Country</option>
-                        <option value="Total-University">Total University</option>
-                        <option value="Total-Program-Dicipline">Total Program Dicipline</option>
-                        <option value="Total-Department">Total Department</option>
-                        <option value="Total-Courses">Total Courses</option>
-                        <option value="Total-Content">Total Content</option>
-                        <option value="Total-Payment">Total Payment</option>
+                        <option value="Dashboard-Total-Student">Dashboard Total Student</option>
+                        <option value="Dashboard-Total-Staff">Dashboard Total Staff</option>
+                        <option value="Dashboard-Total-Partner">Dashboard Total Partner</option>
+                        <option value="Dashboard-Total-Country">Dashboard Total Country</option>
+                        <option value="Dashboard-Total-University">Dashboard Total University</option>
+                        <option value="Dashboard-Total-Program-Dicipline">Dashboard Total Program Dicipline</option>
+                        <option value="Dashboard-Total-Department">Dashboard Total Department</option>
+                        <option value="Dashboard-Total-Courses">Dashboard Total Courses</option>
+                        <option value="Dashboard-Total-Content">Dashboard Total Content</option>
+                        <option value="Dashboard-Total-Payment">Dashboard Total Payment</option>
+                        <option value="Dashboard-Admission-Fees">Dashboard Admission Fees</option>
+                        <option value="Dashboard-Tuition-Fees">Dashboard Tuition Fees</option>
+                        <option value="Dashboard-Tickets">Dashboard Tickets</option>
+                        <option value="Dashboard-Visa-Purpose">Dashboard Visa Purpose</option>
+                        <option value="Dashboard-Service-Charge">Dashboard Service Charge</option>
+                        <option value="Dashboard-Application-Fees">Dashboard Application Fees</option>
+                        <option value="Dashboard-Others">Dashboard Others</option>
+                        <option value="Dashboard-Offer-Letter">Dashboard Offer Letter</option>
+                        <option value="Dashboard-Admission-Letter">Dashboard Admission Letter</option>
+                        <option value="Dashboard-Doctor-Appointment-Letter">Dashboard Doctor Appointment Letter</option>
+                        <option value="Dashboard-Another-Letter">Dashboard Another Letter</option>
+                        <option value="Dashboard-Primium-Subcription">Dashboard Primium Subcription</option>
+                        <option value="Dashboard-Total-Amount">Dashboard Total Amount</option>
                     </select>
                 </div>
                 <button type="submit" class="btn btn-success"> Permission Update</button>

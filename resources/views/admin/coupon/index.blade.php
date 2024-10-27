@@ -60,7 +60,6 @@
                                                 class='bx bx-edit'></i></a>
                                         <a href="{{ route('destroy.coupon', $row->id) }}" id="delete"
                                             class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
-                                   
                                 </td>
                             </tr>
                         @endforeach

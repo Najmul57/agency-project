@@ -16,8 +16,8 @@
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                    <a href="{{ route('create.expensive') }}" class="btn btn-info">Add Cashbook</a>
-              
+                <a href="{{ route('create.expensive') }}" class="btn btn-info">Add Cashbook</a>
+
             </div>
         </div>
     </div>
@@ -65,15 +65,19 @@
                                 </td>
                                 <td>{{ $row->user->name }}</td>
                                 <td>
+                                    @if (auth()->user()->can('Cashbook-View'))
                                         <a href="javascript:void(0)" data-bs-toggle="modal"
                                             data-bs-target="#expensiveModal{{ $row->id }}"
                                             class="btn btn-sm btn-primary" data-message="{{ $row->description }}">View</a>
-                                    
+                                    @endif
+                                    @if (auth()->user()->can('Cashbook-Update'))
                                         <a href="{{ route('edit.expensive', $row->id) }}"
                                             class="btn btn-sm btn-info">Edit</a>
+                                    @endif
+                                    @if (auth()->user()->can('Cashbook-Delete'))
                                         <a href="{{ route('destroy.expensive', $row->id) }}" id="delete"
                                             class="btn btn-sm btn-danger">Delete</a>
-                                 
+                                    @endif
                                 </td>
                             </tr>
                         @endforeach

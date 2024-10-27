@@ -7,6 +7,10 @@
             word-wrap: break-word;
             white-space: normal;
         }
+
+        tr td {
+            vertical-align: middle
+        }
     </style>
     <!--breadcrumb-->
     <div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
@@ -23,8 +27,10 @@
         </div>
         <div class="ms-auto">
             <div class="btn-group">
-                <a href="{{ route('service.create') }}" class="btn btn-info">Add
-                    Service</a>
+                @if (auth()->user()->can('Services-Add'))
+                    <a href="{{ route('service.create') }}" class="btn btn-info">Add
+                        Service</a>
+                @endif
             </div>
         </div>
     </div>
@@ -56,21 +62,31 @@
                                 <td>{{ Str::words($row->short_description, 5, '...') }} </td>
                                 <td>
                                     @if ($row->status == 1)
-                                        <a href="{{ route('service.inactive', $row->id) }}" id="inactive"
-                                            class="btn btn-sm btn-success">Active</a>
-                                    @else
-                                        <a href="{{ route('service.active', $row->id) }}" id="active"
-                                            class="btn btn-sm btn-danger">Inactive</a>
+                                        @if (auth()->user()->can('Services-Inactive'))
+                                            <a href="{{ route('service.inactive', $row->id) }}" id="inactive"
+                                                class="btn btn-sm btn-success">Active</a>
+                                                @endif
+                                        @else
+                                        @if (auth()->user()->can('Services-Active'))
+                                            <a href="{{ route('service.active', $row->id) }}" id="active"
+                                                class="btn btn-sm btn-danger">Inactive</a>
+                                        @endif
                                     @endif
                                 </td>
                                 <td>
-                                    <a href="javascript:void(0)" data-bs-toggle="modal"
-                                        data-bs-target="#modal{{ $row->id }}" class="btn btn-sm btn-primary"><i
-                                            class='bx bx-show'></i></a>
-                                    <a href="{{ route('service.edit', $row->id) }}" class="btn btn-sm btn-info"><i
-                                            class='bx bx-edit'></i></a>
-                                    <a href="{{ route('service.destroy', $row->id) }}" id="delete"
-                                        class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
+                                    @if (auth()->user()->can('Services-Show'))
+                                        <a href="javascript:void(0)" data-bs-toggle="modal"
+                                            data-bs-target="#modal{{ $row->id }}" class="btn btn-sm btn-primary"><i
+                                                class='bx bx-show'></i></a>
+                                    @endif
+                                    @if (auth()->user()->can('Services-Update'))
+                                        <a href="{{ route('service.edit', $row->id) }}" class="btn btn-sm btn-info"><i
+                                                class='bx bx-edit'></i></a>
+                                    @endif
+                                    @if (auth()->user()->can('Services-Delete'))
+                                        <a href="{{ route('service.destroy', $row->id) }}" id="delete"
+                                            class="btn btn-sm btn-danger"><i class='bx bx-trash'></i></a>
+                                    @endif
                                 </td>
                             </tr>
 
