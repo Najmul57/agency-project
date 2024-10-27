@@ -32,12 +32,28 @@ class BlogController extends Controller
         $data->long_description = $request->long_description;
         $data->status = '0';
 
+        // if ($request->file('image')) {
+        //     $file = $request->file('image');
+        //     $filename = date('YmdHi') . $file->getClientOriginalName();
+        //     $file->move(public_path('upload/blog'), $filename);
+        //     Image::make(public_path('upload/blog') . '/' . $filename)->resize(840, 560)->save('upload/blog/' . $filename);
+        //     $data->image = $filename;
+        // }
+
         if ($request->file('image')) {
             $file = $request->file('image');
             $filename = date('YmdHi') . $file->getClientOriginalName();
+            $filenameWithoutExtension = pathinfo($filename, PATHINFO_FILENAME); 
+            $webpFilename = $filenameWithoutExtension . '.webp'; 
+        
             $file->move(public_path('upload/blog'), $filename);
-            Image::make(public_path('upload/blog') . '/' . $filename)->resize(840, 560)->save('upload/blog/' . $filename);
-            $data->image = $filename;
+        
+            Image::make(public_path('upload/blog') . '/' . $filename)
+                ->resize(840, 560)
+                ->encode('webp', 100) // Encode as WebP with 100% quality
+                ->save(public_path('upload/blog') . '/' . $webpFilename);
+            unlink(public_path('upload/blog') . '/' . $filename);
+            $data->image = $webpFilename;
         }
 
         $data->save();
