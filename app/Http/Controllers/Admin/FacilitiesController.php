@@ -31,14 +31,36 @@ class FacilitiesController extends Controller
         $data->name = $request->name;
         $data->status = '0';
 
+        // if ($request->file('image')) {
+        //     $file = $request->file('image');
+        //     $filename = date('YmdHi') . $file->getClientOriginalName();
+        //     $file->move(public_path('upload/facilities'), $filename);
+        //     Image::make(public_path('upload/facilities') . '/' . $filename)
+        //         ->resize(50, 50)
+        //         ->save('upload/facilities/' . $filename);
+        //     $data->image = $filename;
+        // }
+
         if ($request->file('image')) {
             $file = $request->file('image');
             $filename = date('YmdHi') . $file->getClientOriginalName();
+            $filenameWithoutExtension = pathinfo($filename, PATHINFO_FILENAME); // Remove original extension
+            $webpFilename = $filenameWithoutExtension . '.webp'; // New WebP filename
+        
+            // Move the original file temporarily to process it
             $file->move(public_path('upload/facilities'), $filename);
+        
+            // Convert to WebP, resize to 50x50, and save with 100% quality
             Image::make(public_path('upload/facilities') . '/' . $filename)
                 ->resize(50, 50)
-                ->save('upload/facilities/' . $filename);
-            $data->image = $filename;
+                ->encode('webp', 100) // Encode as WebP with 100% quality
+                ->save(public_path('upload/facilities') . '/' . $webpFilename);
+        
+            // Delete the original uploaded file if not needed
+            unlink(public_path('upload/facilities') . '/' . $filename);
+        
+            // Save the WebP filename to the database
+            $data->image = $webpFilename;
         }
 
         $data->save();
